@@ -20,9 +20,25 @@ async function getNotifications() {
  function processNotifications(notifications) {
     notifications.forEach(notification => {
         console.log(`Notification ID: ${notification.id}`);
+        console.log(`Type: ${notification.type}`);
         console.log(`Message: ${notification.message}`);
         console.log(`Timestamp: ${notification.timestamp}`);
-        console.log('---');
+        
     });
+}
+function displayNotifications(notifications) {
+    console.log('Notifications:');
+    notifications.forEach(notification => {
+        console.log(`- ${notification.message} (Type: ${notification.type}, Timestamp: ${notification.timestamp})`);
+    });
+}
+async function main() {
+    try {
+        const notifications = await getNotifications();
+        processNotifications(notifications);
+        displayNotifications(notifications);
+    } catch (error) {
+        console.error('Error in main function:', error);
+    }   
 }
  
