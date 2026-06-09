@@ -37,8 +37,10 @@ async function main() {
         const notifications = await getNotifications();
         processNotifications(notifications);
         displayNotifications(notifications);
+        console.log('Notifications processed and displayed successfully.');
     } catch (error) {
         console.error('Error in main function:', error);
     }   
 }
+main();
  
